@@ -1,0 +1,988 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000; /* Color negro predominante */
+    color: #fff;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    color: #76b900; /* Verde Nvidia */
+}
+
+p, li {
+    font-family: 'Roboto', sans-serif;
+    color: #ddd;
+}
+
+/* Evita el desbordamiento horizontal */
+html, body {
+    overflow-x: hidden; /* Oculta el scroll horizontal */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Asegura que padding no afecte el ancho */
+}
+
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #76b900; /* Verde Nvidia */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #66a300;
+}
+
+@keyframes slideText {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.text-slider {
+    animation: slideText 10s linear infinite;
+    font-size: 1.5em;
+    color: #f0f0f0; /* Gris muy claro  */
+    padding: 20px;
+    margin: 0 auto;
+    text-align: center;
+    white-space: nowrap; /* Para que el texto no se divida en varias lineas  */
+    overflow: hidden; /* Oculta textos que esten fuera de si area visible  */
+}
+
+
+/* Estilo para animaciones y transiciones en texto */
+.appear {
+    animation: fadeInBottom 2s ease-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeInBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.moving-text {
+    position: relative;
+    animation: moving 5s linear infinite;
+}
+
+@keyframes moving {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-100px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Mejora visual en hover */
+h3:hover {
+    color: #76b900; /* Verde Nvidia */
+    transform: scale(1.1);
+    transition: color 0.3s, transform 0.3s ease;
+}
+
+/* Estilos del header y navegación */
+header {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #111;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    min-height: 60px;
+}
+
+header .logo img {
+    width: 100px;
+    height: auto;
+}
+
+/* Estilos base de la navegación */
+.nav-menu {
+    display: block;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-list li {
+    margin-left: 20px;
+}
+
+.nav-list li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.nav-list li a:hover {
+    color: #76b900;
+}
+
+/* Estilos del submenú */
+.menu-productos {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #111;
+    list-style: none;
+    padding: 10px;
+    min-width: 150px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.menu-productos:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    margin: 0;
+    padding: 5px 0;
+}
+
+.submenu li a {
+    color: #fff;
+    display: block;
+    padding: 5px 10px;
+}
+
+/* Botón de menú hamburguesa */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.menu-toggle:hover {
+    color: #76b900;
+}
+
+/* Media queries para diseño responsivo */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        display: none;
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: #111;
+        padding: 20px;
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        display: block;
+    }
+
+    .nav-list {
+        flex-direction: column;
+    }
+
+    .nav-list li {
+        margin: 15px 0;
+    }
+
+    .submenu {
+        position: static;
+        background-color: #222;
+        display: none;
+        padding: 10px;
+        margin-top: 10px;
+    }
+
+    .menu-productos.active .submenu {
+        display: block;
+    }
+}
+
+/* Menú desplegable */
+.menu-productos {
+    position: relative;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #111;
+    list-style: none;
+    padding: 10px;
+}
+
+.menu-productos:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    padding: 10px;
+}
+
+.submenu li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Sección hero */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    background-color: #000;
+    color: #fff;
+}
+
+.hero img {
+    flex: 1;
+    max-width: 80%;
+    height: auto;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.hero .content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+/* Sección Promesa */
+.promise ul {
+    list-style: none;
+}
+
+.promise ul li {
+    margin-bottom: 10px;
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column; /* Cambia a diseño vertical */
+        align-items: center; /* Centra todo horizontalmente */
+        padding: 20px;
+    }
+
+    .hero img {
+        width: 100%; /* Imagen ocupa todo el ancho de la pantalla */
+        height: auto; /* Mantiene proporciones */
+        margin-bottom: 20px; /* Espacio entre la imagen y el texto */
+        object-fit: cover; /* Garantiza un ajuste adecuado */
+    }
+
+    .hero .content {
+        text-align: center; /* Centra el texto */
+        max-width: 90%; /* Ancho reducido para mejor legibilidad */
+    }
+
+    .hero h1 {
+        font-size: 2rem; /* Tamaño ajustado del texto */
+        margin-bottom: 15px;
+    }
+
+    .hero p {
+        font-size: 1rem; /* Reducido ligeramente */
+        margin-bottom: 15px;
+    }
+
+    .promise ul li {
+        font-size: 1rem; /* Ajuste de tamaño de los puntos */
+    }
+
+    .promise .btn {
+        font-size: 0.95rem; /* Botón ligeramente más pequeño */
+    }
+}
+
+
+/* Nueva Sección de Productos */
+.productos {
+    text-align: center;
+    padding: 50px 0;
+    background-color: #000;
+}
+
+.productos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #76b900; /* Verde Nvidia */
+}
+
+.productos p {
+    margin-bottom: 30px;
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+}
+
+.productos-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.producto {
+    background-color: #111;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    border-radius: 10px;
+	 
+}
+
+.producto img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-family: 'Montserrat', sans-serif;
+    color: #76b900; /* Verde Nvidia */
+}
+
+.producto p {
+    font-size: 1.2rem;
+    color: #ffcc00;
+}
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .productos-grid {
+        flex-direction: column; /* Cambia la dirección a columna */
+        gap: 30px; /* Aumenta la separación entre productos */
+        align-items: center; /* Centra los productos */
+    }
+
+    .producto {
+        width: 90%; /* Cada producto ocupa el 90% del ancho de la pantalla */
+    }
+}
+
+
+
+.btn-compra {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #76b900; /* Verde Nvidia */
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-compra:hover {
+    background-color: #66a300;
+}
+
+/* Nueva Sección: Nuevos Productos */
+
+/* Efecto de zoom en las imágenes al hacer hover */
+.nuevos-productos-item img {
+    transition: transform 0.5s ease-in-out;
+}
+
+.nuevos-productos-item img:hover {
+    transform: scale(1.2);
+}
+
+.nuevos-productos {
+    background-color: #000;
+    color: #fff;
+    padding: 40px;
+    text-align: center;
+}
+
+.nuevos-productos h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: #76b900; /* Verde Nvidia */
+}
+
+.nuevos-productos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.nuevos-productos-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Solo en pantallas grandes */
+    gap: 2rem;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: transparent;
+}
+
+.nuevos-productos-item:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+.nuevos-productos-item img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.nuevos-productos-item-content {
+    width: 55%;
+}
+
+
+.nuevos-productos-item h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #76b900;
+}
+
+.nuevos-productos-item p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Responsivo: Pantallas pequeñas */
+@media (max-width: 768px) {
+    .nuevos-productos-item {
+        display: flex !important; /* Forzamos flexbox */
+        flex-direction: column !important; /* Forzamos apilar verticalmente */
+        align-items: center !important; /* Centra horizontalmente */
+        justify-content: center !important; /* Centra verticalmente */
+        text-align: center !important; /* Centra el texto */
+        gap: 1rem !important; /* Espacio entre elementos */
+    }
+
+    .nuevos-productos-item img {
+        display: block !important; /* Forzamos que no sea inline */
+        margin: 0 auto !important; /* Centra horizontalmente */
+        width: 100% !important; /* Imagen ocupa el ancho completo */
+        max-width: 300px !important; /* Limita el tamaño máximo */
+        height: auto !important; /* Mantiene la proporción */
+    }
+
+    .nuevos-productos-item-content {
+        text-align: center !important; /* Centra el contenido */
+        width: 100% !important; /* Asegura el ancho total */
+    }
+}
+
+/* Footer */
+.footer {
+    background-color: #111;
+    color: #fff;
+    padding: 40px 0;
+    text-align: center;
+}
+
+.footer-content {
+    margin-bottom: 40px;
+}
+
+.footer-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #76b900; /* Verde Nvidia */
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.footer-table {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: separate;
+    border-spacing: 20px;
+}
+
+.footer-table td {
+    padding: 20px;
+    font-size: 1.1rem;
+    text-align: center;
+    vertical-align: top;
+    border: 1px solid #444;
+}
+
+.footer-logo {
+    width: 150px;
+    height: auto;
+}
+
+.footer-bottom {
+    background-color: #222;
+    padding: 30px 0;
+}
+
+.footer-bottom h2 {
+    margin-bottom: 20px;
+    color: #76b900;
+}
+
+.footer-bottom form {
+    margin-bottom: 20px;
+}
+
+.footer-bottom input[type="email"] {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 250px;
+}
+
+.footer-bottom button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #76b900;
+    color: #fff;
+    cursor: pointer;
+}
+
+.footer-bottom button:hover {
+    background-color: #66a300;
+}
+
+.footer-bottom p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+/* Diseño responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    /* Ajustes generales */
+    .footer {
+        padding: 20px 10px;
+        text-align: center; /* Centrar texto en general */
+    }
+
+    .footer-content h2 {
+        font-size: 1.8rem; /* Reduce tamaño del encabezado */
+        margin-bottom: 10px;
+    }
+
+    .footer-content p {
+        font-size: 1rem; /* Texto más pequeño */
+    }
+
+    /* Tabla en columnas */
+    .footer-table {
+        width: 100%; /* Ocupa todo el ancho */
+        border-spacing: 10px; /* Espaciado reducido */
+    }
+
+    .footer-table td {
+        display: block; /* Cambia de filas horizontales a verticales */
+        width: 90%; /* Ocupa casi todo el ancho */
+        margin: 10px auto; /* Centra las filas con margen */
+        border: 1px solid #444; /* Mantiene el borde visible */
+        background-color: #222; /* Fondo oscuro para destacar */
+        border-radius: 8px; /* Bordes redondeados */
+        padding: 15px; /* Ajusta el espacio interno */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Sombra para resaltar los cuadros */
+    }
+
+    .footer-logo {
+        width: 120px; /* Reduce tamaño del logo */
+        margin: 0 auto; /* Centra la imagen */
+    }
+
+    /* Formulario */
+    .footer-bottom h2 {
+        font-size: 1.5rem; /* Reduce tamaño */
+        margin-bottom: 15px;
+    }
+
+    .footer-bottom form {
+        display: flex;
+        flex-direction: column; /* Cambia a diseño vertical */
+        align-items: center;
+    }
+
+    .footer-bottom input[type="email"] {
+        margin-right: 0; /* Quita el margen derecho */
+        margin-bottom: 10px; /* Añade margen inferior */
+        width: 90%; /* Más ancho para móviles */
+    }
+
+    .footer-bottom button {
+        width: 90%; /* Más ancho */
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .footer-bottom p {
+        font-size: 0.8rem; /* Texto más pequeño */
+    }
+}
+
+/* Popup */
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+#popup.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#popup.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+	
+}
+
+#popup-close {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#popup-close:hover {
+    background-color: #d32f2f;
+}
+
+#popup-message {
+    color: #000; /* Color negro */
+    font-size: 16px; /* Tamaño de letra */
+    margin: 10px 0; /* Separación alrededor */
+}
+
+.carrito {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    color: #76b900;
+    cursor: pointer;
+}
+
+.btn-agregar {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background-color: #76b900;
+    color: #fff;
+    font-size: 0.9em;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-agregar:hover {
+    background-color: #66a300;
+}
+
+/* Estilo para la ventana del carrito */
+.carrito-popup {
+    position: fixed;
+    top: 20%;
+    right: 5%;
+    width: 300px;
+    background-color: #111;
+    color: #fff;
+    border: 1px solid #76b900;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    z-index: 1000;
+    display: none;
+}
+
+.carrito-popup h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.carrito-item img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.carrito-item .info {
+    flex: 1;
+}
+
+.carrito-total {
+    margin-top: 15px;
+    font-weight: bold;
+    text-align: right;
+}
+
+.carrito-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.carrito-buttons button {
+    padding: 5px 10px;
+    background-color: #76b900;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.carrito-buttons button:hover {
+    background-color: #66a300;
+}
+/* Estilos para el carrito flotante */
+.carrito {
+    position: absolute;
+    top: 30px; /* Puedes ajustar este valor según sea necesario */
+    right: 350px; /* Mantener distancia del borde derecho */
+    font-size: 1.5em;
+    color: #76b900;
+    cursor: pointer;
+    z-index: 100; /* Asegurarse de que esté por encima de otros elementos */
+}
+
+
+.carrito-flotante {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.carrito-flotante #carrito-count {
+    background-color: #76b900;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 0.7em;
+    position: absolute;
+    top: -5px;
+    right: -5px;
+}
+/* Ajuste para resoluciones pequeñas */
+@media (max-width: 768px) {
+    .carrito {
+        
+        top: 30px; /* Puedes ajustar este valor según sea necesario */
+       right: 60px; /* Mantener distancia del borde derecho */
+    }
+
+}
+/* Estilos para la ventana emergente de datos personales */
+#popup-datos {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 2px solid #76b900;
+    border-radius: 8px;
+    padding: 20px;
+    width: 300px;
+    z-index: 2000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+#popup-datos h3 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+
+
+#popup-datos input,
+#popup-datos select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+#btn-completar-compra {
+    background-color: #76b900;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    margin-top: 15px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#btn-completar-compra:hover {
+    background-color: #66a300;
+}
+
+/* Estilos para la ventana emergente de datos del cliente */
+#datos-cliente-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 400px;
+    background-color: #111;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    display: none; /* Se mostrará con JavaScript */
+}
+
+#datos-cliente-popup h2 {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#datos-cliente-popup label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#datos-cliente-popup input,
+#datos-cliente-popup select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #76b900;
+    border-radius: 5px;
+    background-color: #222;
+    color: #fff;
+}
+
+#btn-completar-compra {
+    width: 100%;
+    padding: 10px;
+    background-color: #76b900;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btn-completar-compra:hover {
+    background-color: #66a300;
+}
+#popup-datos label {
+    display: block;
+    margin-top: 10px; /* Asegura separación */
+    font-weight: bold;
+    color: #333; /* Color visible para subtítulos */
+}
